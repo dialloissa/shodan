@@ -1,0 +1,29 @@
+import shodan
+import requests
+import socket
+import sys
+
+
+
+SHODAN_API_KEY = "xlm4qiq5RsTjo7dekR1iDgFSF6lSrYPw"
+api = shodan.Shodan(SHODAN_API_KEY)
+resultat = []
+A = []
+
+
+file = open('file.txt', "r")
+lines = file.readlines()
+
+
+for line in lines:
+    A.append(line.strip())
+
+
+for elements in A:
+    
+    resultat =api.host(elements)
+    print(elements)
+    print(resultat["hostnames"])
+    print("===========================================================================")
+
+    
